@@ -1,0 +1,766 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap");
+@import "tailwindcss";
+
+:root {
+  --ink: #171c1a;
+  --bone: #f1eee5;
+  --red: #e8573f;
+  --lime: #c8d273;
+  --blue: #4f7580;
+  --muted: #72766f;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background: #cbc9c2;
+    color: var(--ink);
+    font-family: "IBM Plex Sans", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  p,
+  figure {
+    margin: 0;
+  }
+  img,
+  svg {
+    display: block;
+  }
+}
+
+.stage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+.poster {
+  width: min(2245px, calc(100vw - 60px));
+  aspect-ratio: 594 / 841;
+  overflow: hidden;
+  background: var(--bone);
+  box-shadow: 0 35px 100px rgba(20, 22, 20, 0.24);
+  display: grid;
+  grid-template-rows: 20.5% 22.5% 32.5% 17.5% 7%;
+  font-size: clamp(7px, 1vw, 22.45px);
+}
+
+.poster > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 61% 39%;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  padding: 4.2% 5.5% 3.5%;
+}
+
+.eyebrow {
+  display: flex;
+  gap: 2.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid rgba(241, 238, 229, 0.35);
+  font: 500 0.42em "DM Mono";
+  letter-spacing: 0.09em;
+}
+
+.project-label {
+  margin-top: 2.5em;
+  color: var(--lime);
+  font: 500 0.44em "DM Mono";
+  letter-spacing: 0.13em;
+}
+
+.hero h1 {
+  margin-top: 0.12em;
+  font: 400 4.28em/0.76 "Archivo Black";
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+.hero h1 i {
+  color: var(--red);
+  font: 400 0.74em/0.2 "Instrument Serif";
+  text-transform: none;
+  letter-spacing: -0.035em;
+}
+
+.hero-subtitle {
+  margin-top: 0.75em;
+  color: var(--lime);
+  font: 600 0.78em "IBM Plex Sans";
+  letter-spacing: -0.02em;
+}
+
+.hero-intro {
+  width: 61%;
+  margin-top: 0.8em;
+  color: rgba(241, 238, 229, 0.75);
+  font-size: 0.49em;
+  line-height: 1.45;
+}
+
+.hero-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, var(--ink) 0%, transparent 28%);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
+  filter: saturate(0.72) contrast(1.08);
+}
+
+.hero-image figcaption {
+  position: absolute;
+  z-index: 2;
+  right: 5%;
+  bottom: 5%;
+  color: var(--bone);
+  font: 500 0.32em "DM Mono";
+  letter-spacing: 0.08em;
+  writing-mode: vertical-rl;
+}
+
+.hero-number {
+  position: absolute;
+  z-index: 2;
+  right: 36.5%;
+  bottom: -0.18em;
+  color: var(--red);
+  font: 400 6.4em/1 "Archivo Black";
+  letter-spacing: -0.1em;
+}
+
+.hero-rail {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  padding: 1.2em 1.3em;
+  display: flex;
+  gap: 1.5em;
+  background: var(--lime);
+  color: var(--ink);
+  font: 500 0.34em "DM Mono";
+  letter-spacing: 0.08em;
+}
+
+.curve-section {
+  position: relative;
+  padding: 2.2% 4.3% 1.5%;
+  border-bottom: 1px solid rgba(23, 28, 26, 0.25);
+  overflow: hidden;
+}
+
+.curve-title {
+  display: grid;
+  grid-template-columns: 58% 31%;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.curve-title span,
+.evidence-title span {
+  color: var(--red);
+  font: 500 0.38em "DM Mono";
+  letter-spacing: 0.11em;
+}
+
+.curve-title h2 {
+  margin-top: 0.2em;
+  font: 400 1.28em "Archivo Black";
+  letter-spacing: -0.045em;
+}
+
+.curve-title > p {
+  font-size: 0.43em;
+  line-height: 1.45;
+}
+
+.hero-curve {
+  width: 100%;
+  height: 76%;
+  margin-top: -0.2%;
+}
+
+.graph-mono,
+.axis-label {
+  fill: var(--ink);
+  font: 500 16px "DM Mono";
+  letter-spacing: 2px;
+}
+
+.graph-label {
+  fill: var(--ink);
+  font: 400 19px "Archivo Black";
+}
+
+.graph-note {
+  fill: var(--muted);
+  font: 500 13px "IBM Plex Sans";
+}
+
+.graph-equation {
+  fill: var(--ink);
+  font: italic 34px "Instrument Serif";
+}
+
+.graph-area {
+  fill: var(--ink);
+  font: 500 13px "DM Mono";
+  letter-spacing: 1.5px;
+}
+
+.curve-key {
+  position: absolute;
+  right: 4.3%;
+  bottom: 4.5%;
+  display: flex;
+  gap: 1.8em;
+  font: 400 0.34em "DM Mono";
+}
+
+.curve-key b {
+  color: var(--red);
+}
+
+.properties-section {
+  display: grid;
+  grid-template-columns: 7% 65% 28%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(23, 28, 26, 0.3);
+}
+
+.section-heading.vertical {
+  padding: 1.2em 0.9em;
+  border-right: 1px solid rgba(23, 28, 26, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.section-heading span {
+  color: var(--red);
+  font: 400 1.8em "Instrument Serif";
+}
+
+.section-heading h2 {
+  font: 400 0.54em "Archivo Black";
+  letter-spacing: 0.08em;
+}
+
+.property-flow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  padding: 1.4% 2.5%;
+}
+
+.property {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.2em 1fr;
+  gap: 0.55em;
+  min-width: 0;
+  padding: 0.7em 1.1em 0.55em 0;
+  border-bottom: 1px solid rgba(23, 28, 26, 0.22);
+}
+
+.property:nth-child(odd) {
+  border-right: 1px solid rgba(23, 28, 26, 0.22);
+  margin-right: 1.1em;
+}
+
+.property:nth-child(7),
+.property:nth-child(8) {
+  border-bottom: none;
+}
+
+.property-index {
+  color: var(--red);
+  font: italic 1.28em/1 "Instrument Serif";
+}
+
+.property-kicker {
+  color: var(--muted);
+  font: 500 0.31em "DM Mono";
+  letter-spacing: 0.08em;
+}
+
+.property h3 {
+  margin-top: 0.15em;
+  font: 400 0.67em/1 "Archivo Black";
+  letter-spacing: -0.025em;
+}
+
+.property p {
+  margin-top: 0.48em;
+  font-size: 0.36em;
+  line-height: 1.38;
+}
+
+.property-accent {
+  background: rgba(200, 210, 115, 0.18);
+}
+
+.signal {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.clinical {
+  padding-left: 0.6em;
+  border-left: 2px solid var(--red);
+  font-weight: 500;
+}
+
+.formula {
+  display: inline-block;
+  margin-top: 0.48em;
+  padding: 0.35em 0.5em;
+  background: var(--ink);
+  color: var(--bone);
+  font: 500 0.31em "DM Mono";
+}
+
+.formula.large {
+  color: var(--lime);
+  font-size: 0.44em;
+}
+
+.offset-rule {
+  margin-top: 0.45em;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.6em;
+  align-items: center;
+  color: var(--red);
+  font: 500 0.3em "DM Mono";
+}
+
+.offset-rule i {
+  height: 1px;
+  background: var(--red);
+  transform: rotate(-18deg);
+}
+
+.numbers {
+  display: flex;
+  margin-top: 0.5em;
+  gap: 0.7em;
+}
+
+.numbers span {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+  font: 500 0.29em "DM Mono";
+}
+
+.numbers b {
+  color: var(--red);
+  font: italic 2em "Instrument Serif";
+}
+
+.force-pair {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  margin-top: 0.65em;
+  color: var(--red);
+  font: 400 1em "Archivo Black";
+}
+
+.force-pair i {
+  width: 48%;
+  padding: 0.3em;
+  background: var(--lime);
+  color: var(--ink);
+  text-align: center;
+  font: 500 0.28em "DM Mono";
+}
+
+.six {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  margin-top: 0.45em;
+}
+
+.six b {
+  color: var(--red);
+  font: italic 1.2em "Instrument Serif";
+}
+
+.six span {
+  max-width: 13em;
+  font-size: 0.29em;
+  line-height: 1.25;
+}
+
+.energy-panel {
+  padding: 6% 8%;
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.energy-label {
+  color: var(--lime);
+  font: 500 0.35em "DM Mono";
+  letter-spacing: 0.1em;
+}
+
+.energy-panel .property {
+  display: grid;
+  grid-template-columns: 2.2em 1fr;
+  padding: 1.6em 0;
+  border: none;
+}
+
+.energy-panel .property-index,
+.energy-panel .signal-light {
+  color: var(--lime);
+}
+
+.energy-panel .property-kicker {
+  color: rgba(241, 238, 229, 0.52);
+}
+
+.energy-panel .property h3 {
+  color: var(--bone);
+  font-size: 0.82em;
+}
+
+.energy-panel .property p {
+  font-size: 0.4em;
+}
+
+.formula.inverse {
+  background: var(--bone);
+  color: var(--ink);
+  font-size: 0.37em;
+}
+
+.units {
+  color: var(--lime);
+  font: 500 0.31em "DM Mono" !important;
+  letter-spacing: 0.08em;
+}
+
+.inverse-copy {
+  border-color: var(--lime);
+}
+
+.energy-divider {
+  padding: 1em 0;
+  border-top: 1px solid rgba(241, 238, 229, 0.25);
+  border-bottom: 1px solid rgba(241, 238, 229, 0.25);
+  color: var(--red);
+  text-align: center;
+  font: 500 0.33em "DM Mono";
+  letter-spacing: 0.08em;
+}
+
+.signal-light {
+  font: 500 0.33em "DM Mono" !important;
+}
+
+.evidence-section {
+  display: grid;
+  grid-template-columns: 35% 43% 22%;
+  overflow: hidden;
+}
+
+.applications,
+.classification,
+.revision {
+  min-width: 0;
+  padding: 5% 6%;
+  border-right: 1px solid rgba(23, 28, 26, 0.25);
+}
+
+.revision {
+  border-right: none;
+}
+
+.evidence-title h2 {
+  margin-top: 0.3em;
+  font: 400 0.76em/0.98 "Archivo Black";
+  letter-spacing: -0.03em;
+}
+
+.evidence-title.compact h2 {
+  font-size: 0.65em;
+}
+
+.application-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1em;
+  border-top: 2px solid var(--ink);
+}
+
+.application-grid div {
+  padding: 0.65em 0.5em 0.65em 0;
+  border-bottom: 1px solid rgba(23, 28, 26, 0.22);
+}
+
+.application-grid div:nth-child(odd) {
+  border-right: 1px solid rgba(23, 28, 26, 0.22);
+  margin-right: 0.7em;
+}
+
+.application-grid b,
+.application-grid span {
+  display: block;
+  font: 500 0.31em "DM Mono";
+}
+
+.application-grid span {
+  margin-top: 0.25em;
+  color: var(--red);
+}
+
+.application-grid p {
+  margin-top: 0.25em;
+  font-size: 0.32em;
+  line-height: 1.25;
+}
+
+.atlas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 0.7em;
+  gap: 0.55em;
+}
+
+.atlas-item {
+  position: relative;
+  min-width: 0;
+  border-top: 1px solid rgba(23, 28, 26, 0.24);
+}
+
+.atlas-item > span {
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  color: var(--red);
+  font: italic 0.6em "Instrument Serif";
+}
+
+.atlas-item svg {
+  width: 100%;
+}
+
+.atlas-axis {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+  opacity: 0.35;
+}
+
+.atlas-line {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3;
+}
+
+.atlas-item b,
+.atlas-item small {
+  display: block;
+  font-size: 0.27em;
+  line-height: 1.15;
+}
+
+.atlas-item small {
+  margin-top: 0.2em;
+  color: var(--muted);
+  font: 500 0.23em "DM Mono";
+}
+
+.atlas-key {
+  margin-top: 0.65em;
+  padding-top: 0.5em;
+  border-top: 1px solid rgba(23, 28, 26, 0.3);
+  font-size: 0.28em;
+  line-height: 1.4;
+}
+
+.atlas-key b {
+  color: var(--red);
+}
+
+.two-curves {
+  width: 100%;
+  margin-top: 0.8em;
+}
+
+.two-curves text {
+  fill: var(--ink);
+  font: 500 9px "DM Mono";
+}
+
+.compare-axis {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.compare-one,
+.compare-two {
+  fill: none;
+  stroke-width: 5;
+}
+
+.compare-one {
+  stroke: var(--red);
+}
+
+.compare-two {
+  stroke: var(--blue);
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 26% 60% 14%;
+  background: #e4e0d5;
+  border-top: 0.28em solid var(--ink);
+  overflow: hidden;
+}
+
+.references,
+.roles,
+.submission {
+  min-width: 0;
+  padding: 3.5% 5%;
+  border-right: 1px solid rgba(23, 28, 26, 0.25);
+}
+
+footer b,
+.roles-head span {
+  font: 500 0.31em "DM Mono";
+  letter-spacing: 0.08em;
+}
+
+.references p {
+  margin-top: 0.35em;
+  font-size: 0.24em;
+  line-height: 1.35;
+}
+
+.roles {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto 1fr;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.roles-head {
+  grid-column: 1 / 6;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.3em;
+}
+
+.roles-head span {
+  color: var(--red);
+}
+
+.role {
+  padding: 0.35em 0.55em;
+  border-left: 1px solid rgba(23, 28, 26, 0.2);
+}
+
+.role > span {
+  color: var(--red);
+  font: italic 0.55em "Instrument Serif";
+}
+
+.role p {
+  margin-top: 0.15em;
+  font-size: 0.25em;
+}
+
+.role small {
+  display: block;
+  margin-top: 0.25em;
+  font-size: 0.22em;
+  line-height: 1.25;
+}
+
+.submission {
+  display: grid;
+  align-content: start;
+  gap: 0.38em;
+  border-right: none;
+}
+
+.submission b {
+  color: var(--red);
+}
+
+.submission span {
+  font: 500 0.25em "DM Mono";
+}
+
+@media (max-width: 800px) {
+  .stage {
+    padding: 8px;
+  }
+  .poster {
+    width: calc(100vw - 16px);
+    font-size: 1vw;
+    box-shadow: none;
+  }
+}
+
+@page {
+  size: A1 portrait;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+  .stage {
+    padding: 0;
+  }
+  .poster {
+    width: 594mm;
+    height: 841mm;
+    box-shadow: none;
+  }
+}
